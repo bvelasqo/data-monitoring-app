@@ -1,26 +1,29 @@
-# COVID-19 Data Monitoring Application
+# Covid Data Service
 
-This application monitors and analyzes data on COVID-19 cases, deaths, and tests from various data sources. It uses a component called CovidDataService to download data in JSON format and then presents graphs and charts to the user.
+Covid Data Service es una aplicación que monitorea y analiza información de contagios, muertes y pruebas de COVID-19. La aplicación utiliza un componente que se encarga de descargar los datos de diversas fuentes de datos en formato JSON y luego presenta gráficos y diagramas para el usuario.
 
-## Third-Party Library Integration
+## Requerimientos
 
-To generate the graphs and charts, the application uses a third-party plotting and analytics library that is optimized for generating images from CSV data.
+- Python 3.6 o superior
+- pandas
+- matplotlib
 
-To integrate the third-party library without tightly coupling the application to it, an adapter class is used to transform the CSV data into a format that can be used by the plotting library.
+## Uso
 
-## Repository Contents
+1. Clonar el repositorio:
+  
+  ```bash
+  git clone https://github.com/bvelasqo/data-monitoring-app.git
+  ```
 
-- `covid_data_service.py`: The CovidDataService component for downloading COVID-19 data in CSV format.
-- `csv_data_adapter.py`: The adapter class for transforming CSV data into a format compatible with the plotting library.
-- `csv_plotter.py`: The plotting library integration component.
-- `example.py`: An example usage of the CovidDataService, CSVDataAdapter, and CSVPlotter components.
+2. Instalar las dependencias:
 
-## Usage
+  ```bash
+  pip install pandas matplotlib
+  ```
 
-To use the application, simply run the `example.py` file. This will download the COVID-19 data in CSV format, transform it into a format compatible with the plotting library using the CSVDataAdapter, and generate graphs using the CSVPlotter.
+3. Ejecutar la aplicación:
 
-## Requirements
-
-- Python 3.x
-- requests library
-- Third-party plotting and analytics library (see CSVPlotter for details)
+  ```bash
+  python index.py
+  ```
