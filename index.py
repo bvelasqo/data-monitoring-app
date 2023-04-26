@@ -11,14 +11,11 @@ class JsonToDataFrameConverter(IDataConverter):
     def convert(self, data: dict) -> pd.DataFrame:
         # Convertir datos JSON a formato pandas DataFrame
         df = pd.DataFrame.from_dict(data)
+        self.generateCsv(data)
         return df
-
-class JsonToCsvConverter(IDataConverter):
-    def convert(self, data: dict) -> pd.DataFrame:
-        # Convertir datos JSON a formato CSV
+    def generateCsv(self, data: dict):
         df = pd.DataFrame.from_dict(data)
         df.to_csv('data.csv', index=False)
-        return df
 
 class IPlotter:
     def plot(self, data: pd.DataFrame):
@@ -75,11 +72,10 @@ class CovidDataService:
 class Main:
     def main(self):
         data_converterDataFrame = JsonToDataFrameConverter()
-        data_converterCsv = JsonToCsvConverter()
         plotter = MatplotlibPlotter()
         csv_plotter = CsvPlotter()
         serviceMatplotlib = CovidDataService(data_converterDataFrame, plotter)
-        seviceCsv = CovidDataService(data_converterCsv, csv_plotter)
+        seviceCsv = CovidDataService(data_converterDataFrame, csv_plotter)
 
         # Generar gráfico de datos de países
         seviceCsv.plotCountriesData()

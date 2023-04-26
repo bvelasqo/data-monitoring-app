@@ -11,7 +11,7 @@ Covid Data Service es una aplicación que monitorea y analiza información de co
 ## Uso
 
 1. Clonar el repositorio:
-  
+
   ```bash
   git clone https://github.com/bvelasqo/data-monitoring-app.git
   ```
